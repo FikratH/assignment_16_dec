@@ -16,7 +16,7 @@ namespace assignment_16_dec.Entities
             Name = name;
             Population = population;
             country.TotalPopulation += population;
-            Array.Resize(ref country.cities, country.cities.Length+1);
+            country.ChangeCityCount();
             country.cities[country.cities.Length - 1] = this;
         }
         public override string ToString()

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,19 @@ namespace assignment_16_dec.Entities
     {
         public string Name;
         public long TotalPopulation;
-        public City[] cities;
+        City[] _cities;
+
+        public City[] cities
+        {
+            get
+            {
+                return _cities;
+            }
+            set
+            {
+                _cities = value;
+            }
+        }
 
         public Country(string name)
         {
@@ -30,6 +43,11 @@ namespace assignment_16_dec.Entities
                 }
             }
             Console.WriteLine(" ");
+        }
+        public void ChangeCityCount()
+        {
+
+            Array.Resize(ref _cities, cities.Length + 1);
         }
     }
 }
